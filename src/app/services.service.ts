@@ -27,7 +27,7 @@ export class ServicesService {
    if(selectedService === '1'){
     return this.http.post( `${this.baseUrl}/transform/currency`, body)
    } else {
-    return this.http.post( `${this.baseUrl}/transform/currency`, body)
+    return this.http.post( `${this.baseUrl}/transform/dataReduction`, body)
    }
 
 }

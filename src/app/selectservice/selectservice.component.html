@@ -1,0 +1,22 @@
+<div class="col">
+  <p>You select your Service {{ selectedFile }}</p>
+  <span> Service1
+    <input type="radio" [(ngModel)]="selectedService" value="1" /></span>
+
+  <span> Service2
+    <input type="radio" [(ngModel)]="selectedService" value="2" /></span>
+
+  <br />
+  <br />
+
+  <select #teams>
+    <option default>Pick a File</option>
+    <option [(ngModel)]="selectedFile">{{selectedFile}}</option>
+  </select>
+  <br />
+  <br />
+  <button (click)="takeBlob()">exported Blob</button><br />
+  <button (click)="showSelectedValus()">Start</button>
+
+  <p>{{ selectedFile}}</p>
+</div>

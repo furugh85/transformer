@@ -32,6 +32,7 @@ export class ServicesService {
    } else {
     console.log(`${this.baseUrl}/transform/dataReduction`);
     return this.http.post( `${this.baseUrl}/transform/dataReduction`, body, {headers})
+
    }
 
 }

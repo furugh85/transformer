@@ -20,7 +20,7 @@ export class SelectserviceComponent implements OnInit {
   async showSelectedValus() {
 
     if (this.selectedFile)
-      this.servicBlob.startServices(this.selectedFile, this.selectedService);
+      this.servicBlob.startServices(this.selectedFile, this.selectedService).subscribe();
     //   else if (this.selectedTeam == 'Miami')
        alert(' service:' + this.selectedService);
 

@@ -21,13 +21,17 @@ export class ServicesService {
   }
   
  startServices(fileName:any, selectedService: any): Observable<any> {
-  // const headers = { 'content-type': 'application/json'} 
-   const jsonBody = { 'sourceBlob' : fileName}
-   const body= JSON.stringify(jsonBody);
+   const headers = { 'content-type': 'application/json'} 
+   const body = { 'sourceBlob' : fileName}
+   // const body= JSON.stringify(jsonBody);
+   console.log("body");
+   console.log(body);
    if(selectedService === '1'){
-    return this.http.post( `${this.baseUrl}/transform/currency`, body)
+    console.log(`${this.baseUrl}/transform/currency`);
+    return this.http.post( `${this.baseUrl}/transform/currency`, body, {headers})
    } else {
-    return this.http.post( `${this.baseUrl}/transform/currency`, body)
+    console.log(`${this.baseUrl}/transform/dataReduction`);
+    return this.http.post( `${this.baseUrl}/transform/dataReduction`, body, {headers})
    }
 
 }

@@ -9,9 +9,9 @@
   <br />
   <br />
 
-  <select #teams>
+  <select [(ngModel)]="selectedFile">
     <option default>Pick a File</option>
-    <option [(ngModel)]="selectedFile">{{selectedFile}}</option>
+    <option *ngFor="let file of files">{{file.name}}</option>
   </select>
   <br />
   <br />

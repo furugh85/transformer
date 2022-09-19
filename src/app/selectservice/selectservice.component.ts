@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ServicesService } from '../services.service';
+import{ DataFile } from '../data-file.model';
 
 @Component({
   selector: 'app-selectservice',
@@ -7,8 +8,9 @@ import { ServicesService } from '../services.service';
   styleUrls: ['./selectservice.component.css']
 })
 export class SelectserviceComponent implements OnInit {
-  selectedFile = '';
+  files : DataFile[] = [];
   selectedService = '1'
+  selectedFile = ''
   constructor(private servicBlob: ServicesService) {
 
   }
@@ -27,11 +29,13 @@ export class SelectserviceComponent implements OnInit {
     // }
   }
   async takeBlob() {
-
+    this.files = [];
+    let i = 0;
     for await (const blob of this.servicBlob.containerClient.listBlobsFlat()) {
       console.log(`Flat listing: ${blob.name}`);
-      alert('File extracted:' + blob.name);
-      this.selectedFile = blob.name;
+      i++;
+      this.files.push({"id": i, "name" : blob.name});
+      //this.selectedFile = blob.name;
     }
 
 

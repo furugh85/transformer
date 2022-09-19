@@ -24,13 +24,9 @@ export class ServicesService {
    const headers = { 'content-type': 'application/json'} 
    const body = { 'sourceBlob' : fileName}
    // const body= JSON.stringify(jsonBody);
-   console.log("body");
-   console.log(body);
    if(selectedService === '1'){
-    console.log(`${this.baseUrl}/transform/currency`);
     return this.http.post( `${this.baseUrl}/transform/currency`, body, {headers})
    } else {
-    console.log(`${this.baseUrl}/transform/dataReduction`);
     return this.http.post( `${this.baseUrl}/transform/dataReduction`, body, {headers})
 
    }

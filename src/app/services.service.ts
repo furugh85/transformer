@@ -26,9 +26,11 @@ export class ServicesService {
    // const body= JSON.stringify(jsonBody);
    if(selectedService === '1'){
     return this.http.post( `${this.baseUrl}/transform/currency`, body, {headers})
-   } else {
+   } else if(selectedService === '2'){
     return this.http.post( `${this.baseUrl}/transform/dataReduction`, body, {headers})
 
+   } else{
+    return this.http.post(`${this.baseUrl}/transform/currencyConversionDataReduction`, body, {headers})
    }
 
 }

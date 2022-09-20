@@ -32,18 +32,9 @@ export class SelectserviceComponent implements OnInit {
     this.files = [];
     let i = 0;
     for await (const blob of this.servicBlob.containerClient.listBlobsFlat()) {
-      console.log(`Flat listing: ${blob.name}`);
       i++;
       this.files.push({"id": i, "name" : blob.name});
-      //this.selectedFile = blob.name;
     }
-
-
-    //   if(this.selectedTeam == 'Lakers')
-    //     alert('Started service:' + this.selectedService);
-    //   else if(this.selectedTeam == 'Miami')
-    //     alert('Failed service:' + this.selectedService);
-    //
   }
 
 }

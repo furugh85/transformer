@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BlobServiceClient } from '@azure/storage-blob';
+import { BlobServiceClient, ContainerClient, BlobClient } from '@azure/storage-blob';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServicesService {
-  containerClient: any;
+  containerClient: ContainerClient;
   baseUrl: string = "http://localhost:8080"
 
   constructor(private http:HttpClient) {
     const account = "storage4dts";
     console.log(account);
-    const connStr = "BlobEndpoint=https://storage4dts.blob.core.windows.net/;QueueEndpoint=https://storage4dts.queue.core.windows.net/;FileEndpoint=https://storage4dts.file.core.windows.net/;TableEndpoint=https://storage4dts.table.core.windows.net/;SharedAccessSignature=sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2022-09-23T15:49:24Z&st=2022-09-16T07:49:24Z&spr=https&sig=vv3%2B%2BxKdBTAjsmgOFJmKm04ebu9C9ezWe1Ay3zSHrvs%3D";
+    const connStr = "BlobEndpoint=https://storage4dts.blob.core.windows.net/;QueueEndpoint=https://storage4dts.queue.core.windows.net/;FileEndpoint=https://storage4dts.file.core.windows.net/;TableEndpoint=https://storage4dts.table.core.windows.net/;SharedAccessSignature=sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2022-10-14T17:33:35Z&st=2022-09-28T09:33:35Z&spr=https,http&sig=dO1G3PTzjR1w4edg4%2BLTMeP6AZN7VvQ%2F0AA7BRfv1LY%3D";
     const blobServiceClient = BlobServiceClient.fromConnectionString(connStr);
     const containerName = "exports";
     this.containerClient = blobServiceClient.getContainerClient(containerName);
